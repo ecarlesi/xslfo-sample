@@ -12,11 +12,11 @@ namespace XslFOSample
         static void Main(string[] args)
         {
 #if DEBUG
-            //args = new string[] { 
-            //    @"C:\temp\Sample1",
-            //    @"C:\Users\emili\source\repos\xslfo-sample\XslFOSample\Samples\Sample1.xml",
-            //    @"C:\Users\emili\source\repos\xslfo-sample\XslFOSample\Samples\Sample1.xsl"
-            //};
+            args = new string[] {
+                @"C:\temp\Sample1",
+                @"C:\Users\emili\source\repos\xslfo-sample\XslFOSample\Samples\Sample1.xml",
+                @"C:\Users\emili\source\repos\xslfo-sample\XslFOSample\Samples\Sample1.xsl"
+            };
 #endif
             if (args.Length != 3)
             {

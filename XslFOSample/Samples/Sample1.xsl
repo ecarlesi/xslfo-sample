@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
+  <xsl:include href="Header.xsl" />
+
   <xsl:output method="xml" indent="yes"/>
 
   <xsl:template match="/">
@@ -8,21 +10,27 @@
     <fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
       <fo:layout-master-set>
-        <fo:simple-page-master master-name="simple"
-                      page-height="29.7cm"
-                      page-width="21cm"
-                      margin-top="1cm"
-                      margin-bottom="2cm"
-                      margin-left="2.5cm"
-                      margin-right="2.5cm">
-          <fo:region-body margin-top="3cm"/>
-          <fo:region-before extent="3cm"/>
-          <fo:region-after extent="1.5cm"/>
+        <fo:simple-page-master master-name="simple" page-height="29.7cm" page-width="21cm" margin-top="1cm" margin-bottom="2cm" margin-left="2.5cm" margin-right="2.5cm">
+          <fo:region-body region-name="region-body" margin-top="3cm"/>
+          <fo:region-before region-name="region-header" extent="3cm"/>
+          <fo:region-after region-name="region-footer" extent="1.5cm"/>
         </fo:simple-page-master>
       </fo:layout-master-set>
 
       <fo:page-sequence master-reference="simple">
-        <fo:flow flow-name="xsl-region-body">
+
+        <fo:static-content flow-name="region-header">
+          <fo:block>
+            <xsl:call-template name="custom-header-template" />
+          </fo:block>
+        </fo:static-content>
+        <fo:static-content flow-name="region-footer">
+          <fo:block>
+            <fo:inline>FOOTER TEXT</fo:inline>
+          </fo:block>
+        </fo:static-content>
+
+        <fo:flow flow-name="region-body">
 
           <fo:table table-layout="fixed" width="60mm" border-style="solid" start-indent="20mm">
             <fo:table-column column-width="80mm"/>

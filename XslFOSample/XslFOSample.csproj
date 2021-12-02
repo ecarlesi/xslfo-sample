@@ -50,6 +50,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Samples\header-image.png" />
+    <Content Include="Samples\Header.xsl" />
     <Content Include="Samples\Sample1.xml" />
     <Content Include="Samples\Sample1.xsl" />
   </ItemGroup>
